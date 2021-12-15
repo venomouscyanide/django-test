@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Add a Team Member</h1>
+    <h5>Set email, location and role.</h5>
+    <div>
+        <form id="create-form" action="" method="post">
+            {% csrf_token %}
+            {% include 'form_inputs.html' with form=form %}
+            <div class="button-wrapper">
+                <button type="submit" class="btn submit primary-btn">Save</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

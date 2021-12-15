@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Edit Team Member</h1>
+    <h5>Edit Contact Info, location and role.</h5>
+    <div>
+        <form id="create-form" action="" method="post">
+            {% csrf_token %}
+            {% include 'form_inputs.html' with form=form %}
+            <div class="button-wrapper">
+                <a href="{% url "member_delete"  object.id  %}" class="btn delete border-btn">Delete</a>
+                <button type="submit" class="btn submit primary-btn">Save</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

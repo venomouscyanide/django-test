@@ -1,0 +1,7 @@
+{% for field in form %}
+<div class="input-wrapper">
+    {% if field.label == 'Role' %} {{ field.label_tag }} {% endif %}
+    {{ field }}
+    {{ field.errors }}
+</div>
+{% endfor %}
