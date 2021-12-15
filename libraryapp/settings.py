@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=kvg=$=aag2s74*wiq78r-614qot8w%&&q5q6i@uumbnia1y8d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['herokudjangoapp-pras.herokuapp.com']
+ALLOWED_HOSTS = ['herokudjangoapp-pras.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -64,7 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
+            ]
         },
     },
 ]
@@ -74,11 +74,17 @@ WSGI_APPLICATION = 'libraryapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+from django.db.backends.mysql.base import DatabaseWrapper
+DatabaseWrapper.data_types['DateTimeField'] = 'datetime' # fix for MySQL 5.5
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'sql5459075',
+        'USER': 'sql5459075',
+        'PASSWORD': 'HTWrreWk4L',
+        'HOST': 'sql5.freemysqlhosting.net',
+        'PORT': '3306',
     }
 }
 
